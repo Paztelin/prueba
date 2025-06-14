@@ -1,0 +1,73 @@
+footer {
+    width: 80%;
+    margin-left: 200px;
+}
+
+.footer-container,.totales-foot, .resto-foot{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+
+.div-boton{
+    margin-left: 2rem;
+}
+
+
+.totales-foot p {
+    color: #e65c4f;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+
+}
+
+.resto-foot p{
+    color: #333;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+
+}
+
+.total {
+    padding: 5px;
+    border: none;
+    align-items: right;
+    font-size: 25px;
+    width: 20%;
+    box-sizing: border-box;
+    text-align: right;
+    flex: 1;
+    margin-left: 0.5rem;
+}
+
+/*botn PAGAR PROPINAS*/
+#botonn {
+    border-radius: 40px;
+    padding-top: 15px;
+    width: 450px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid lightslategray;
+    color: lightslategray;
+    font-weight: bold;
+}
+
+#botonn {
+    color: lightslategray;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#botonn:hover {
+    background-color: #e65c4f;
+    cursor: pointer;
+    transition: all 0.3s;
+    transform: scale(1.1);
+    text-decoration: none;
+    border: none;
+    color: #ffffff;
+}

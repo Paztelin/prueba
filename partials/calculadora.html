@@ -1,0 +1,54 @@
+<section>
+    <div id="calculator">
+        <div class="calculadora">
+
+            <div class="display-row">
+                <span class="currency-symbol">$</span>
+                <input type="text" id="display" readonly>
+                <img src="img/borrar.png" alt="borrar" class="btn-borrar" onclick="clearDisplay()">
+            </div>
+
+            <div id="buttons">
+                <input type="button" value="1" onclick="addToDisplay('1')">
+                <input type="button" value="2" onclick="addToDisplay('2')">
+                <input type="button" value="3" onclick="addToDisplay('3')">
+
+                <input type="button" value="4" onclick="addToDisplay('4')">
+                <input type="button" value="5" onclick="addToDisplay('5')">
+                <input type="button" value="6" onclick="addToDisplay('6')">
+
+                <input type="button" value="7" onclick="addToDisplay('7')">
+                <input type="button" value="8" onclick="addToDisplay('8')">
+                <input type="button" value="9" onclick="addToDisplay('9')">
+
+                <input type="button" value="00" onclick="addToDisplay('0')">
+                <input type="button" value="0" onclick="addToDisplay('.')">
+
+                <button onclick="calculate()" class="img-button">
+                    <img class="verificar" src="img/comprobado.png" alt="boton-ok">
+                </button>
+            </div>
+
+            <div class="pie-pag">
+                <label>Cantidad restante $1,500.00</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-derecho">
+        <h3>Pagos</h3>
+        <div class="metodo1">
+            <img src="img/dineroefectivo.png" alt="icono efectivo" style="width: 30px;">
+            <p class="texto">Efectivo</p>
+            <p class="monto">$300.00</p>
+            <img class="image" src="img/cancelar.png" alt="icono cancelar pago" style="width: 18px;">
+        </div>
+
+        <div class="metodo1">
+            <img src="img/tarjeta.png" alt="icono efectivo" style="width: 30px;">
+            <p class="texto">Tarjeta de crédito</p>
+            <p class="monto">$1,200.00</p>
+            <img class="image" src="img/cancelar.png" alt="icono cancelar pago" style="width: 18px;">
+        </div>
+    </div>
+</section>

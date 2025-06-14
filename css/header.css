@@ -1,0 +1,66 @@
+header{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #595757;
+    padding-bottom: 30px;
+    margin-right: 20px;
+}
+
+.atrass{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+}
+
+.atrass p{
+    margin: 0;
+    font-size: 15px;
+    color: #e65c4f;
+    font-weight: bold;
+}
+
+.atrass:hover{
+    cursor: pointer;
+}
+
+.titulo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    flex-grow: 1;
+    margin: 20px;
+    text-align: left;
+}
+
+.contenedor-derecha {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    padding-right: 20px;
+}
+
+.etiqueta {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e65c4f;
+    margin: 7px;
+}
+
+
+
+.cajaDinero {
+    background-color: #FFD6D0;
+    border: 3px solid #FFD6D0;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 25px;
+    width: 60%;
+    height: 60px;
+    box-sizing: border-box;
+    color: #e65c4f;
+    font-weight: bold;
+    text-align: right;
+    cursor: auto;
+}

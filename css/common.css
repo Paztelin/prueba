@@ -1,0 +1,8 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin: 15px;
+    background-color: #FFFFFF;
+    letter-spacing: 0.3px; /* Espaciado suave entre letras */
+    line-height: 1.5;
+}
