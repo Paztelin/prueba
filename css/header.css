@@ -7,6 +7,23 @@ header{
     margin-right: 20px;
 }
 
+#step1 >button{
+    background-color: #424242;
+    font-size: 15px;
+    border-radius: 20px;
+    padding: 12px;
+    border: none;
+    color: #ffffff;
+    font-weight: 400;
+    cursor: pointer;
+    margin-right:200px;
+}
+
+#step1>button:hover{
+    transition: all 0.3s;
+    transform: scale(1.1);
+}
+
 .atrass{
     display: flex;
     align-items: center;
