@@ -7,6 +7,12 @@ header{
     margin-right: 20px;
 }
 
+
+#step1>img{
+    width: 100px;
+    height: 500px;
+}
+
 #step1 >button{
     background-color: #424242;
     font-size: 15px;
