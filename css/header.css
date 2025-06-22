@@ -7,19 +7,13 @@ header{
     margin-right: 20px;
 }
 
-
-#step1>img{
-    width: 100px;
-    height: 500px;
-}
-
-#step1 >button{
-    background-color: #424242;
+#step1>button{
+    background-color: #333;
     font-size: 15px;
     border-radius: 20px;
     padding: 12px;
     border: none;
-    color: #ffffff;
+    color: #FFD6D0;
     font-weight: 400;
     cursor: pointer;
     margin-right:200px;
