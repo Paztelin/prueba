@@ -3,7 +3,9 @@ footer {
     margin-left: 200px;
 }
 
-.footer-container,.totales-foot, .resto-foot{
+.footer-container,
+.totales-foot,
+.resto-foot {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -11,7 +13,7 @@ footer {
 }
 
 
-.div-boton{
+.div-boton {
     margin-left: 2rem;
 }
 
@@ -24,7 +26,7 @@ footer {
 
 }
 
-.resto-foot p{
+.resto-foot p {
     color: #333;
     font-weight: bold;
     font-size: 25px;

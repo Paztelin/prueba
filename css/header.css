@@ -1,4 +1,4 @@
-header{
+header {
     margin-left: 20px;
     display: flex;
     align-items: center;
@@ -7,7 +7,7 @@ header{
     margin-right: 20px;
 }
 
-#step1>button{
+#step1>button {
     background-color: #333;
     font-size: 15px;
     border-radius: 20px;
@@ -16,29 +16,29 @@ header{
     color: #FFD6D0;
     font-weight: 400;
     cursor: pointer;
-    margin-right:200px;
+    margin-right: 200px;
 }
 
-#step1>button:hover{
+#step1>button:hover {
     transition: all 0.3s;
     transform: scale(1.1);
 }
 
-.atrass{
+.atrass {
     display: flex;
     align-items: center;
     padding: 10px;
     gap: 15px;
 }
 
-.atrass p{
+.atrass p {
     margin: 0;
     font-size: 15px;
     color: #e65c4f;
     font-weight: bold;
 }
 
-.atrass:hover{
+.atrass:hover {
     cursor: pointer;
 }
 
@@ -54,7 +54,7 @@ header{
 .contenedor-derecha {
     display: flex;
     flex-direction: column;
-    align-items:flex-end;
+    align-items: flex-end;
     padding-right: 20px;
 }
 
