@@ -1,3 +1,43 @@
+setTimeout(() => {
+    // 👇 Aquí va todo tu código de instanciación
+    const elemento1 = document.querySelector("[data-operand-1]");
+    const elemento2 = document.querySelector("[data-operand-2]");
+    const clearButton = document.querySelector("[data-clear]");
+    const numberButtons = document.querySelectorAll("[data-number]");
+    const deleteButton = document.querySelector("[data-delete]");
+    const operationButtons = document.querySelectorAll("[data-operation]");
+    const equalsButtons = document.querySelector("[data-equals]");
+
+    if (!elemento1 || !elemento2) return; // proteger si aún no cargó
+
+    const calculator = new Calculator(elemento1, elemento2);
+
+    clearButton.addEventListener("click", () => {
+        calculator.clear();
+    });
+
+    numberButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            calculator.appendNumber(button.innerHTML);
+        });
+    });
+
+    deleteButton.addEventListener('click', () => {
+        calculator.delete();
+    });
+
+    operationButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            calculator.operation(button.innerHTML);
+        });
+    });
+
+    equalsButtons.addEventListener('click', () => {
+        calculator.calc();
+    });
+
+}, 300); // espera 300ms para que se cargue el HTML parcial
+
 class Calculator {
     constructor(operand1Elemt, operand2Elemt) {
         this.elemento1 = operand1Elemt; //elementos donde se escriben los numeros(pantalla)
@@ -39,59 +79,59 @@ class Calculator {
 
     }
     calc() {
-        switch (this.operator){
+        switch (this.operator) {
             case "+":
                 this.operand1 = +this.operand1 + +this.operand2;
-            break;
+                break;
 
             case "-":
                 this.operand1 = +this.operand1 - +this.operand2;
-            break;
+                break;
 
             case "*":
                 this.operand1 = +this.operand1 * +this.operand2;
-            break;
+                break;
 
             case "/":
                 this.operand1 = +this.operand1 / +this.operand2;
-            break;
+                break;
         }
-        this.operator= "";
-        this.operand2=0;
+        this.operator = "";
+        this.operand2 = 0;
         this.updateUI();
     }
 }
 
-const elemento1=document.querySelector("[data-operand-1]");
-const elemento2=document.querySelector("[data-operand-2]");
-const clearButton=document.querySelector("[data-clear]");
-const numberButtons=document.querySelectorAll("[data-number]");
-const deleteButton=document.querySelector("[data-delete]");
-const operationButtons=document.querySelectorAll("[data-operation]");
-const equalsButtons=document.querySelector("[data-equals]");
+const elemento1 = document.querySelector("[data-operand-1]");
+const elemento2 = document.querySelector("[data-operand-2]");
+const clearButton = document.querySelector("[data-clear]");
+const numberButtons = document.querySelectorAll("[data-number]");
+const deleteButton = document.querySelector("[data-delete]");
+const operationButtons = document.querySelectorAll("[data-operation]");
+const equalsButtons = document.querySelector("[data-equals]");
 
 const calculator = new Calculator(elemento1, elemento2);
 
-clearButton.addEventListener("click", () =>{
+clearButton.addEventListener("click", () => {
     calculator.clear();
 });
 
-numberButtons.forEach(button =>{
-    button.addEventListener('click', () =>{
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
         calculator.appendNumber(button.innerHTML);
     })
 });
 
-deleteButton.addEventListener('click',() =>{
+deleteButton.addEventListener('click', () => {
     calculator.delete();
 });
 
-operationButtons.forEach(button =>{
-    button.addEventListener("click", ()=>{
+operationButtons.forEach(button => {
+    button.addEventListener("click", () => {
         calculator.operation(button.innerHTML);
     })
 });
 
-equalsButtons.addEventListener('click', () =>{
+equalsButtons.addEventListener('click', () => {
     calculator.calc();
 });
