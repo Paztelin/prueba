@@ -1,4 +1,4 @@
-/*
+
 setTimeout(() => {
     // Ya se ha cargado header.html, así que puedes asignar eventos
     const boton = document.querySelector('#step1 button');
@@ -7,6 +7,8 @@ setTimeout(() => {
     }
 }, 300); // espera 300ms (puedes ajustar si hace falta)
 
+
+/*
 function mostrarConfirmacion() {
     // Crear fondo oscuro (modal background)
     const overlay = document.createElement("div");
@@ -169,6 +171,7 @@ function cancelarProceso() {
     contenedor.appendChild(boton);
 }
 */
+
 
 
 class Calculator {
