@@ -1,95 +1,4 @@
-section > div {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: bisque;
-}
 
-#calculator {
-    background-color: cornflowerblue;
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 15px 15px 0px #424242;
-}
-
-#calculator::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 8px;
-    transform: rotate(45deg);
-    margin-left: -29px;
-    margin-top: -2px;
-    z-index: -1;
-    background-color: #424242;
-}
-
-#calculator::before {
-    content: '';
-    position: absolute;
-    margin-left: 458px;
-    margin-top: -22px;
-    width: 25px;
-    height: 8px;
-    background-color: #424242;
-    transform: rotate(45deg);
-    z-index: -1;
-}
-
-#calculator>.operands {
-    width: 100%;
-    padding: 20px;
-    text-align: right;
-    background-color: #bcd1c0;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    font-size: 40px;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-#calculator>.operands>[data-operand-1] {
-    font-size: 30px;
-}
-
-#calculator>.btn-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
-}
-
-#calculator>.btn-grid>button {
-    padding: 10px;
-    background-color: #ececec;
-    font-weight: bold;
-    border-radius: 10px;
-    border-width: 5px;
-    border-color: #c9c9c9;
-    font-size: 25px;
-}
-
-#calculator>.btn-grid>button:nth-child(2){
-    grid-column: span 2;
-}
-
-#calculator>.btn-grid>button:last-child{
-    grid-column: span 2;
-    background-color: #f5a34d;
-    border-color: #ce812a;
-}
-
-
-
-
-
-
-
-
-
-/*
 #calculator {
     margin-left: 30px;
     margin-top: 30px;
@@ -115,7 +24,7 @@ section > div {
     border-bottom: 2px solid #333;/* línea inferior */
     gap: 3px;
     padding: 10px;
-/*}
+}
 
 .currency-symbol {
     font-size: 25px;
@@ -153,7 +62,7 @@ section > div {
 }
 
 
-/*botones calculadora
+/*botones calculadora*/
 #buttons {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -205,7 +114,6 @@ section > div {
     transform: scale(1.1);
     border: none;    
 }
-*/
 
 /*********************/
 
