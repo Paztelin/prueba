@@ -171,7 +171,6 @@ function cancelarProceso() {
 */
 
 
-
 class Calculator {
     constructor(operand1Elemt, operand2Elemt) {
         this.elemento1 = operand1Elemt; //elementos donde se escriben los numeros(pantalla)
