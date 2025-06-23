@@ -1,4 +1,83 @@
 #calculator {
+    background-color: cornflowerblue;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 15px 15px 0px #424242;
+}
+
+#calculator::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 8px;
+    transform: rotate(45deg);
+    margin-left: -29px;
+    margin-top: -2px;
+    z-index: -1;
+    background-color: #424242;
+}
+
+#calculator::before {
+    content: '';
+    position: absolute;
+    margin-left: 458px;
+    margin-top: -22px;
+    width: 25px;
+    height: 8px;
+    background-color: #424242;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+#calculator>.operands {
+    width: 100%;
+    padding: 20px;
+    text-align: right;
+    background-color: #bcd1c0;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#calculator>.operands>[data-operand-1] {
+    font-size: 30px;
+}
+
+#calculator>.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+#calculator>.btn-grid>button {
+    padding: 10px;
+    background-color: #ececec;
+    font-weight: bold;
+    border-radius: 10px;
+    border-width: 5px;
+    border-color: #c9c9c9;
+    font-size: 25px;
+}
+
+#calculator>.btn-grid>button:nth-child(2){
+    grid-column: span 2;
+}
+
+#calculator>.btn-grid>button:last-child{
+    grid-column: span 2;
+    background-color: #f5a34d;
+    border-color: #ce812a;
+}
+
+
+
+
+
+/*
+#calculator {
     margin-left: 30px;
     margin-top: 30px;
     padding: 35px;
@@ -20,7 +99,7 @@
     margin: 10px;
     display: flex;
     align-items: center;
-    border-bottom: 2px solid #333;/* línea inferior */
+    border-bottom: 2px solid #333;
     gap: 3px;
     padding: 10px;
 }
@@ -59,9 +138,10 @@
     transition: transform 0.3s;
     transform: scale(1.3);
 }
-
+*/
 
 /*botones calculadora*/
+/*
 #buttons {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -113,11 +193,13 @@
     transform: scale(1.1);
     border: none;
 }
-
+*/
 /*********************/
 
 
 /*final calcu*/
+
+/*
 .pie-pag {
     border-radius: 23px;
     background-color: #ffffff;
@@ -131,16 +213,17 @@
     font-weight: bold;
     color: #e65c4f;
 }
-
+*/
 
 
 /*menu derecho*/
+/*
 .menu-derecho {
     float: left;
     width: 30%;
     margin-top: 1%;
     padding: 0;
-    box-sizing: border-box;/*hace que todo lo de adentro se ajuste al tamaño WIDTH*/
+    box-sizing: border-box;
     margin-left: 8%;
 }
 
@@ -168,17 +251,16 @@ section h3 {
 .metodo1 {
     display: flex;
     align-items: center;
-    justify-content: space-between;/* separa los elementos con espacio entre ellos */
-    gap: 1rem;/* espacio entre los elementos */
+    justify-content: space-between;
+    gap: 1rem;
 }
 
-/* Opcional para que los párrafos no se vean desordenados */
 .metodo1 p {
     margin: 0;
 }
 
 .texto {
-    flex: 1;/* ocupa el espacio disponible entre la imagen y el monto */
+    flex: 1;
     margin-left: 0.5rem;
 }
 
@@ -187,3 +269,4 @@ section h3 {
     transition: transform 0.3s;
     transform: scale(1.3);
 }
+*/
