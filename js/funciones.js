@@ -96,6 +96,8 @@ setTimeout(() => {
 
                 this.dividingMode = false;
                 this.clear();
+                // ✅ Mensaje final
+                alert("Ok, ahora elige el método de pago.");
             }
         }
 
@@ -104,19 +106,21 @@ setTimeout(() => {
             const inputPropina = document.querySelector(".input-propina");
             const divInput = document.querySelector(".div-pro");
 
-            // NO se borra el número de personas
             if (inputPropina) inputPropina.value = '';
             this.totalPropina = 0;
             this.dividingMode = false;
             this.clear();
 
-            // El mensaje de $x por persona se borra solo si no hay personas ingresadas
             const numPersonas = parseInt(divInput.value);
             const divText = document.querySelector(".divir p");
             if (isNaN(numPersonas) || numPersonas <= 0) {
                 divText.textContent = '$0.00 x persona';
             }
+
+            // ✅ Mostrar mensaje con alert
+            alert("Se actualizará automáticamente el cálculo por persona después de modificar el total de propinas.");
         }
+
 
     }
 
