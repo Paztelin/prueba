@@ -96,12 +96,9 @@ setTimeout(() => {
 
                 this.dividingMode = false;
                 this.clear();
-                // ✅ Mensaje final
-                alert("Ok, ahora elige el método de pago.");
             }
+
         }
-
-
         editInput() {
             const inputPropina = document.querySelector(".input-propina");
             const divInput = document.querySelector(".div-pro");
@@ -117,11 +114,8 @@ setTimeout(() => {
                 divText.textContent = '$0.00 x persona';
             }
 
-            // ✅ Mostrar mensaje con alert
-            alert("Se actualizará automáticamente el cálculo por persona después de modificar el total de propinas.");
+            alert("Se actualizará el monto de propinas x persona.");
         }
-
-
     }
 
     // Selección de elementos del DOM

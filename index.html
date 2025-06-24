@@ -8,17 +8,36 @@
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
 
-    <body>
-        <div id="container">
-            <div include-html="partials/header.html"></div>
-            <div include-html="partials/menu_izquierdo.html"></div>
-            <div include-html="partials/calculadora.html"></div>
-        </div>
+<body>
+    <div id="container">
+        <div include-html="partials/header.html"></div>
+        <div include-html="partials/menu_izquierdo.html"></div>
+        <div include-html="partials/calculadora.html"></div>
+    </div>
 
-        <div include-html="partials/footer.html"></div>
+    <div include-html="partials/footer.html"></div>
 
-        <script src="js/include-html.js"></script>
-        <script src="js/funciones.js"></script>
+    <script src="js/include-html.js"></script>
+    <script>
+        includeHTML(() => {
 
-    </body>
+            alert("B i e n v e n i d o.");
+            alert("LO PROCESO DEL SISTEMA ES INGRESAR:");
+            alert("1. EFECTIVO EN CAJA");
+            alert("2. TOTAL DE PROPINAS");
+            alert("1. NUMERO DE PERSONAS PARA DIVIDIR LAS PROPINAS (OPCIONAL)");
+            alert("2. ELEGIR EL METODO DE PAGO");
+            alert("2. PAGAR LAS PROPINAS");
+
+            // Cargar funciones.js después de que todo está listo
+            const script = document.createElement("script");
+            script.src = "js/funciones.js";
+            document.body.appendChild(script);
+        });
+    </script>
+
+    <script src="js/funciones.js"></script>
+
+</body>
+
 </html>

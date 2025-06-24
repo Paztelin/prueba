@@ -21,14 +21,8 @@
     display: flex;
     align-items: center;
     border-bottom: 2px solid #333;
-    gap: 3px;
+    gap: 20px;
     padding: 10px;
-}
-
-.currency-symbol {
-    font-size: 25px;
-    font-weight: bold;
-    color: #333;
 }
 
 
