@@ -114,7 +114,7 @@
 
 
 #display::placeholder {
-    font-size: 20px;
+    font-size: 50px;
     border: none;
     outline: 0;
 }
@@ -122,20 +122,12 @@
 #display {
     border: none;
     background: transparent;
-    font-size: 15px;
+    font-size: 30px;
     font-weight: bold;
     color: #333;
     flex: 1;
     outline: none;
     text-align: right;
-}
-
-#display:hover{
-    border: none;
-    background: transparent;
-    font-weight: bold;
-    font-size: 50px;
-    pointer-events: none;
 }
 
 .btn-borrar {
