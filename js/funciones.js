@@ -3,6 +3,8 @@ setTimeout(() => {
         constructor(displayElement) {
             this.displayElement = displayElement;
             this.clear();
+            this.dividingMode = false;
+            this.totalPropina = 0;
         }
 
         clear() {
@@ -25,10 +27,7 @@ setTimeout(() => {
 
         appendNumber(number) {
             if (number === '.' && this.currentValue.includes('.')) return;
-
-            // Agrega número normalmente como string sin formatear
             this.currentValue += number;
-
             this.updateUI();
         }
 
@@ -39,23 +38,62 @@ setTimeout(() => {
 
         confirm() {
             const inputPropina = document.querySelector(".input-propina");
-            if (inputPropina && this.currentValue !== '') {
-                const formatted = this.formatNumber(this.currentValue);
+            const divInput = document.querySelector(".div-pro");
+            const divText = document.querySelector(".divir p");
+
+            if (this.currentValue === '') return;
+
+            const formatted = this.formatNumber(this.currentValue);
+            const numericValue = parseFloat(this.currentValue.replace(/,/g, ''));
+
+            if (!this.dividingMode) {
+                // Modo normal: guardar total propina
                 inputPropina.value = `$${formatted}`;
+                this.totalPropina = numericValue;
+                this.clear();
+
+                // Preguntar si desea dividir
+                const deseaDividir = confirm("¿Deseas dividir las propinas?");
+                if (deseaDividir) {
+                    this.dividingMode = true;
+                } else {
+                    alert("Ok, continúa eligiendo el método de pago.");
+                }
+            } else {
+                // Modo dividir activado: ingresar número de personas
+                const numPersonas = parseInt(this.currentValue);
+                if (isNaN(numPersonas) || numPersonas <= 0) {
+                    alert("Ingresa un número válido de personas");
+                    this.clear();
+                    return;
+                }
+
+                divInput.value = numPersonas;
+                const propinaPorPersona = this.totalPropina / numPersonas;
+                divText.textContent = `$${propinaPorPersona.toFixed(2)} x persona`;
+
+                // Reiniciar modo
+                this.dividingMode = false;
                 this.clear();
             }
         }
 
         editInput() {
             const inputPropina = document.querySelector(".input-propina");
-            if (inputPropina) {
-                inputPropina.value = '';
-                this.clear();
-            }
+            const divInput = document.querySelector(".div-pro");
+            const divText = document.querySelector(".divir p");
+
+            if (inputPropina) inputPropina.value = '';
+            if (divInput) divInput.value = '';
+            if (divText) divText.textContent = '$0.00 x persona';
+
+            this.totalPropina = 0;
+            this.dividingMode = false;
+            this.clear();
         }
     }
 
-    // Obtener elementos del DOM
+    // Selección de elementos
     const display = document.querySelector("[data-operand-1]");
     const botonesNumero = document.querySelectorAll("[data-number]");
     const btnBorrar = document.querySelector("[data-delete]");
