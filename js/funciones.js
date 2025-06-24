@@ -20,15 +20,20 @@ setTimeout(() => {
                 maximumFractionDigits: 2
             });
         }
-
         updateUI() {
-            // Si está en modo división, no dar formato
+            if (this.currentValue === '') {
+                this.displayElement.textContent = '';
+                return;
+            }
+
             if (this.dividingMode) {
                 this.displayElement.textContent = this.currentValue;
             } else {
-                this.displayElement.textContent = this.formatNumber(this.currentValue);
+                const formatted = this.formatNumber(this.currentValue);
+                this.displayElement.textContent = `$${formatted}`;
             }
         }
+
 
         appendNumber(number) {
             if (number === '.' && this.currentValue.includes('.')) return;
