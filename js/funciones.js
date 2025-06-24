@@ -90,4 +90,45 @@ setTimeout(() => {
         }
 
         editInput() {
-            const inputPropina =
+            const inputPropina = document.querySelector(".input-propina");
+            const divInput = document.querySelector(".div-pro");
+            const divText = document.querySelector(".divir p");
+
+            if (inputPropina) inputPropina.value = '';
+            if (divInput) divInput.value = '';
+            if (divText) divText.textContent = '$0.00 x persona';
+
+            this.totalPropina = 0;
+            this.dividingMode = false;
+            this.clear();
+        }
+    }
+
+    // Selección de elementos del DOM
+    const display = document.querySelector("[data-operand-1]");
+    const botonesNumero = document.querySelectorAll("[data-number]");
+    const btnBorrar = document.querySelector("[data-delete]");
+    const btnOk = document.querySelector("[data-ok]");
+    const btnEditar = document.querySelector(".edit");
+
+    const calculator = new Calculator(display);
+
+    botonesNumero.forEach(button => {
+        button.addEventListener("click", () => {
+            calculator.appendNumber(button.textContent);
+        });
+    });
+
+    btnBorrar.addEventListener("click", () => {
+        calculator.delete();
+    });
+
+    btnOk.addEventListener("click", () => {
+        calculator.confirm();
+    });
+
+    btnEditar.addEventListener("click", () => {
+        calculator.editInput();
+    });
+
+}, 100);
