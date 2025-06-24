@@ -49,7 +49,6 @@ setTimeout(() => {
             this.currentValue = this.currentValue.slice(0, -1);
             this.updateUI();
         }
-
         confirm() {
             const inputPropina = document.querySelector(".input-propina");
             const divInput = document.querySelector(".div-pro");
@@ -58,7 +57,6 @@ setTimeout(() => {
             if (this.currentValue === '') return;
 
             if (!this.dividingMode) {
-                // Paso 1: Registrar el total de propinas
                 const formatted = this.formatNumber(this.currentValue);
                 const numericValue = parseFloat(this.currentValue.replace(/,/g, ''));
 
@@ -66,18 +64,25 @@ setTimeout(() => {
                 this.totalPropina = numericValue;
                 this.clear();
 
-                // Ahora sí preguntar si desea dividir
-                setTimeout(() => {
-                    const deseaDividir = confirm("¿Deseas dividir las propinas?");
-                    if (deseaDividir) {
-                        this.dividingMode = true;
-                    } else {
-                        alert("Ok, continúa eligiendo el método de pago.");
-                    }
-                }, 100);
+                // Verificamos si ya hay número de personas ingresado
+                const numPersonas = parseInt(divInput.value);
+                if (!isNaN(numPersonas) && numPersonas > 0) {
+                    const propinaPorPersona = this.totalPropina / numPersonas;
+                    divText.textContent = `$${propinaPorPersona.toFixed(2)} x persona`;
+                } else {
+                    // Si no hay personas aún, preguntamos si quiere dividir
+                    setTimeout(() => {
+                        const deseaDividir = confirm("¿Deseas dividir las propinas?");
+                        if (deseaDividir) {
+                            this.dividingMode = true;
+                        } else {
+                            alert("Ok, continúa eligiendo el método de pago.");
+                        }
+                    }, 100);
+                }
 
             } else {
-                // Paso 2: Recibir número de personas
+                // División activa: ingreso de número de personas
                 const numPersonas = parseInt(this.currentValue);
                 if (isNaN(numPersonas) || numPersonas <= 0) {
                     alert("Ingresa un número válido de personas");
@@ -94,19 +99,25 @@ setTimeout(() => {
             }
         }
 
+
         editInput() {
             const inputPropina = document.querySelector(".input-propina");
             const divInput = document.querySelector(".div-pro");
-            const divText = document.querySelector(".divir p");
 
+            // NO se borra el número de personas
             if (inputPropina) inputPropina.value = '';
-            if (divInput) divInput.value = '';
-            if (divText) divText.textContent = '$0.00 x persona';
-
             this.totalPropina = 0;
             this.dividingMode = false;
             this.clear();
+
+            // El mensaje de $x por persona se borra solo si no hay personas ingresadas
+            const numPersonas = parseInt(divInput.value);
+            const divText = document.querySelector(".divir p");
+            if (isNaN(numPersonas) || numPersonas <= 0) {
+                divText.textContent = '$0.00 x persona';
+            }
         }
+
     }
 
     // Selección de elementos del DOM
