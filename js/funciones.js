@@ -1,4 +1,146 @@
 setTimeout(() => {
+    class Calculator {
+        constructor(displayElement) {
+            this.displayElement = displayElement;
+            this.clear();
+        }
+
+        clear() {
+            this.currentValue = '';
+            this.updateUI();
+        }
+
+        updateUI() {
+            this.displayElement.textContent = this.currentValue;
+        }
+
+        appendNumber(number) {
+            if (number === '.' && this.currentValue.includes('.')) return;
+            this.currentValue += number;
+            this.updateUI();
+        }
+
+        delete() {
+            this.currentValue = this.currentValue.slice(0, -1);
+            this.updateUI();
+        }
+
+        confirm() {
+            const inputPropina = document.querySelector(".input-propina");
+            if (inputPropina && this.currentValue !== '') {
+                inputPropina.value = `$${this.currentValue}`;
+                this.clear();
+            }
+        }
+
+        // Nuevo método para editar: limpia el input y el display
+        editInput() {
+            const inputPropina = document.querySelector(".input-propina");
+            if (inputPropina) {
+                inputPropina.value = '';
+                this.clear();
+            }
+        }
+    }
+
+    // Obtener elementos del DOM
+    const display = document.querySelector("[data-operand-1]");
+    const botonesNumero = document.querySelectorAll("[data-number]");
+    const btnBorrar = document.querySelector("[data-delete]");
+    const btnOk = document.querySelector("[data-ok]");
+    const btnEditar = document.querySelector(".edit");
+
+    // Instanciar la calculadora
+    const calculator = new Calculator(display);
+
+    // Eventos
+    botonesNumero.forEach(button => {
+        button.addEventListener("click", () => {
+            calculator.appendNumber(button.textContent);
+        });
+    });
+
+    btnBorrar.addEventListener("click", () => {
+        calculator.delete();
+    });
+
+    btnOk.addEventListener("click", () => {
+        calculator.confirm();
+    });
+
+    // Evento para el botón de editar
+    btnEditar.addEventListener("click", () => {
+        calculator.editInput();
+    });
+
+}, 300);
+
+
+
+
+
+
+/*class Calculator {
+    constructor(operand1Elemt, operand2Elemt) {
+        this.elemento1 = operand1Elemt; //elementos donde se escriben los numeros(pantalla)
+        this.elemento2 = operand2Elemt;
+        this.clear();
+    }
+    clear() {
+        this.operand1 = 0;
+        this.operand2 = 0;
+        this.operator = '';
+        this.updateUI();
+    }
+    updateUI() {
+        this.elemento1.innerHTML = this.operand1 + this.operator;
+        this.elemento2.innerHTML = this.operand2;
+    }
+    appendNumber(number) {
+        if (number === "." && this.operand2.includes('.')) return;
+        this.operand2 = this.operand2 === 0
+            ? number
+            : this.operand2.toString() + number;
+
+        this.updateUI();
+    }
+    delete() {
+        if (this.operand2 === 0) return;
+        this.operand2 = +this.operand2.toString().slice(0, -1);
+        this.updateUI();
+    }
+    okay(){
+
+    }
+}
+
+const elemto1=document.querySelector("[data-operand-1]");
+//const elemto2=document.querySelector("[]");
+const botones=document.querySelectorAll("[data-number]");
+const btnBorrar=document.querySelector("[data-delete]");
+const btnOK=document.querySelector("[data-ok]");
+
+const calculator = new Calculator(elemto1);
+
+botones.forEach(button =>{
+    button.addEventListener("click", () =>{
+        calculator.appendNumber(button.innerHTML);
+    })
+});
+
+btnBorrar.addEventListener("click", () =>{
+    calculator.delete();
+});
+
+btnOK.addEventListener("click", () =>{
+    calculator.okay();
+});
+
+*/
+
+
+
+/*setTimeout(() => {
     // 👇 Aquí va todo tu código de instanciación
     const elemento1 = document.querySelector("[data-operand-1]");
     const elemento2 = document.querySelector("[data-operand-2]");
@@ -135,3 +277,4 @@ operationButtons.forEach(button => {
 equalsButtons.addEventListener('click', () => {
     calculator.calc();
 });
+*/

@@ -1,3 +1,4 @@
+<!---
 <div id="calculator">
         <div class="operands">
             <div data-operand-1>0</div>
@@ -30,44 +31,44 @@
             <button data-equals>=</button>
         </div>
     </div>
+-->
 
 
 
 
-<!---
 <section>
     <div id="calculator">
         <div class="calculadora">
 
             <div class="display-row">
                 <span class="currency-symbol">$</span>
-                <input type="text" id="display" readonly>
-                <img src="img/borrar.png" alt="borrar" class="btn-borrar" onclick="clearDisplay()">
+                <button data-operand-1 type="text" id="display" readonly></button>
+                <img data-delete src="img/borrar.png" alt="borrar" class="btn-borrar">
             </div>
 
             <div id="buttons">
-                <button onclick="addToDisplay('1')">1</button>
-                <button onclick="addToDisplay('2')">2</button>
-                <button onclick="addToDisplay('3')">3</button>
+                <button data-number>1</button>
+                <button data-number>2</button>
+                <button data-number>3</button>
 
-                <button onclick="addToDisplay('4')">4</button>
-                <button onclick="addToDisplay('5')">5</button>
-                <button onclick="addToDisplay('6')">6</button>
+                <button data-number>4</button>
+                <button data-number>5</button>
+                <button data-number>6</button>
 
-                <button onclick="addToDisplay('7')">7</button>
-                <button onclick="addToDisplay('8')">8</button>
-                <button onclick="addToDisplay('9')">9</button>
+                <button data-number>7</button>
+                <button data-number>8</button>
+                <button data-number>9</button>
 
-                <button onclick="addToDisplay('0')">.</button>
-                <button onclick="addToDisplay('.')">0</button>
+                <button data-number>0</button>
+                <button data-number>.</button>
 
-                <button onclick="calculate()" class="img-button">
+                <button data-ok class="img-button">
                     <img class="verificar" src="img/comprobado.png" alt="boton-ok">
                 </button>
             </div>
 
 
-            <!---<div class="pie-pag"><label>Cantidad restante $1,500.00</label></div>-
+            <!---<div class="pie-pag"><label>Cantidad restante $1,500.00</label></div>-->
 
         </div>
     </div>
@@ -82,7 +83,8 @@
             <p class="texto">Sin pagos</p>
         </div>
 
-        <!---<div class="metodo1">
+        <!----
+        <div class="metodo1">
             <img src="img/dineroefectivo.png" alt="icono efectivo" style="width: 30px;">
             <p class="texto">Efectivo</p>
             <p class="monto">$300.00</p>
@@ -95,8 +97,6 @@
             <p class="monto">$1,200.00</p>
             <img class="image" src="img/cancelar.png" alt="icono cancelar pago" style="width: 18px;">
         </div>
-
+        -->
     </div>
 </section>
-
--->
