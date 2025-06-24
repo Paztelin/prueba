@@ -10,13 +10,25 @@ setTimeout(() => {
             this.updateUI();
         }
 
+        formatNumber(value) {
+            const number = parseFloat(value.replace(/,/g, ''));
+            if (isNaN(number)) return '';
+            return number.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
         updateUI() {
-            this.displayElement.textContent = this.currentValue;
+            this.displayElement.textContent = this.formatNumber(this.currentValue);
         }
 
         appendNumber(number) {
             if (number === '.' && this.currentValue.includes('.')) return;
+
+            // Agrega número normalmente como string sin formatear
             this.currentValue += number;
+
             this.updateUI();
         }
 
@@ -28,12 +40,12 @@ setTimeout(() => {
         confirm() {
             const inputPropina = document.querySelector(".input-propina");
             if (inputPropina && this.currentValue !== '') {
-                inputPropina.value = `$${this.currentValue}`;
+                const formatted = this.formatNumber(this.currentValue);
+                inputPropina.value = `$${formatted}`;
                 this.clear();
             }
         }
 
-        // Nuevo método para editar: limpia el input y el display
         editInput() {
             const inputPropina = document.querySelector(".input-propina");
             if (inputPropina) {
@@ -50,10 +62,8 @@ setTimeout(() => {
     const btnOk = document.querySelector("[data-ok]");
     const btnEditar = document.querySelector(".edit");
 
-    // Instanciar la calculadora
     const calculator = new Calculator(display);
 
-    // Eventos
     botonesNumero.forEach(button => {
         button.addEventListener("click", () => {
             calculator.appendNumber(button.textContent);
@@ -68,12 +78,11 @@ setTimeout(() => {
         calculator.confirm();
     });
 
-    // Evento para el botón de editar
     btnEditar.addEventListener("click", () => {
         calculator.editInput();
     });
 
-}, 300);
+}, 100);
 
 
 
