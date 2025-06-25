@@ -53,7 +53,6 @@ setTimeout(() => {
             const inputPropina = document.querySelector(".input-propina");
             const divInput = document.querySelector(".div-pro");
             const divText = document.querySelector(".divir p");
-            const restoPago= document.querySelector(".total restante");
 
             if (this.currentValue === '') return;
 
@@ -62,8 +61,8 @@ setTimeout(() => {
                 const numericValue = parseFloat(this.currentValue.replace(/,/g, ''));
 
                 inputPropina.value = `$${formatted}`;
-                restoPago.value = `$${formatted}`;
                 this.totalPropina = numericValue;
+                this.
                 this.clear();
 
                 // Verificamos si ya hay número de personas ingresado
