@@ -26,12 +26,13 @@ aside label {
     border-radius: 10px;
     font-size: 40px;
     width: 45%;
-    height: 65px;
+    height: 60px;
     box-sizing: border-box;
     color: #e65c4f;
     font-weight: bold;
     margin-left: 20%;
     cursor: auto;
+    text-align: left;
 
 }
 
