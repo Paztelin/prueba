@@ -100,7 +100,7 @@ setTimeout(() => {
             }
 
         }
-        editInput() {
+        /*editInput() {
             const inputPropina = document.querySelector(".input-propina");
             const divInput = document.querySelector(".div-pro");
 
@@ -116,7 +116,7 @@ setTimeout(() => {
             }
 
             alert("Se actualizará el monto de propinas x persona.");
-        }
+        }*/
     }
 
     // Selección de elementos del DOM
