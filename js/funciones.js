@@ -13,6 +13,8 @@ setTimeout(() => {
         "10. ¡Gracias por usar el sistema!"
     );
 
+    alert("Ingresa el efectivo en caja");
+
     class Calculator {
         constructor(displayElement) {
             this.displayElement = displayElement;
@@ -81,7 +83,7 @@ setTimeout(() => {
                     return;
                 }
 
-                const formattedEfectivo = this.formatNumber(this.currentValue); // 👈 aplicar formato
+                const formattedEfectivo = this.formatNumber(this.currentValue); //aplicar formato
 
                 if (inputCaja) {
                     inputCaja.value = `$${formattedEfectivo}`;
@@ -89,7 +91,7 @@ setTimeout(() => {
 
                 this.ingresandoEfectivo = false;
                 this.clear();
-                alert("✅ Efectivo en caja registrado. Ahora ingresa el total de propinas.");
+                alert("Efectivo en caja registrado. Ahora ingresa el total de propinas.");
                 return;
             }
 
@@ -100,6 +102,12 @@ setTimeout(() => {
 
                 inputPropina.value = `$${formatted}`;
                 this.totalPropina = numericValue;
+
+                // ✅ Actualizar el campo "restante por pagar"
+                const restanteElemento = document.querySelector(".total.restante");
+                if (restanteElemento) {
+                    restanteElemento.textContent = `$${formatted}`;
+                }
                 this.clear();
 
                 const numPersonas = parseInt(divInput.value);

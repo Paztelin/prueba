@@ -9,7 +9,7 @@ footer {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 3rem;
+    gap: 8rem;
 }
 
 
@@ -21,7 +21,7 @@ footer {
 .totales-foot p {
     color: #e65c4f;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30px;
     margin: 0;
 
 }
@@ -29,12 +29,12 @@ footer {
 .resto-foot p {
     color: #333;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30px;
     margin: 0;
-
+    
 }
 
-.total {
+.total-restante {
     padding: 5px;
     border: none;
     align-items: right;
