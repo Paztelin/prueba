@@ -19,12 +19,12 @@ setTimeout(() => {
         constructor(displayElement) {
             this.displayElement = displayElement;
             this.clear();
-            this.dividingMode = false;
+            this.dividingMode = false; //num persona dividir prop
             this.totalPropina = 0;
             this.ingresandoEfectivo = true;
         }
 
-        clear() {
+        clear() { //actualizar display calculator
             this.currentValue = '';
             this.updateUI();
         }
@@ -43,9 +43,9 @@ setTimeout(() => {
                 return;
             }
 
-            if (this.dividingMode) {
+            if (this.dividingMode) { //quita formato decimal para num de personas
                 this.displayElement.textContent = this.currentValue;
-            } else {
+            } else { //muestra formato decimal
                 const formatted = this.formatNumber(this.currentValue);
                 this.displayElement.textContent = `$${formatted}`;
             }
@@ -55,7 +55,7 @@ setTimeout(() => {
         appendNumber(number) {
             if (number === '.' && this.currentValue.includes('.')) return;
 
-            // En modo dividir solo aceptar números enteros
+            // Para modo dividir prop solo números enteros
             if (this.dividingMode && number === '.') return;
 
             this.currentValue += number;
@@ -74,7 +74,7 @@ setTimeout(() => {
 
             if (this.currentValue === '') return;
 
-            // Paso 1: si está en modo ingresando efectivo
+            // Paso 1: modo ingresando efectivo
             if (this.ingresandoEfectivo) {
                 const monto = parseFloat(this.currentValue.replace(/,/g, ''));
                 if (isNaN(monto) || monto < 0) {
@@ -111,11 +111,11 @@ setTimeout(() => {
                 this.clear();
 
                 //division de propinas
-                const numPersonas = parseInt(divInput.value);
+                const numPersonas = parseInt(divInput.value);     // División automática si ya hay número en el input
                 if (!isNaN(numPersonas) && numPersonas > 0) {
                     const propinaPorPersona = this.totalPropina / numPersonas;
                     divText.textContent = `$${propinaPorPersona.toFixed(2)} x persona`;
-                } else {
+                } else { //sino pregunta si se desea dividir las propinas
                     setTimeout(() => {
                         const deseaDividir = confirm("¿Deseas dividir las propinas?");
                         if (deseaDividir) {
@@ -144,10 +144,11 @@ setTimeout(() => {
             }
         }
 
-        editInput() { //boton editar total de propinas
+        editInput() { //icono editar total de propinas
             const inputPropina = document.querySelector(".input-propina"); //total propinas
-            const divInput = document.querySelector(".div-pro"); 
+            const divInput = document.querySelector(".div-pro"); //caja numero para dividir
 
+            //limpia valores
             if (inputPropina) inputPropina.value = '';
             this.totalPropina = 0;
             this.dividingMode = false;
@@ -164,17 +165,16 @@ setTimeout(() => {
         }
     }
 
-    // Selección de elementos del DOM
+    // Selección de elementos del HTML
     const display = document.querySelector("[data-operand-1]");
-    const botonesNumero = document.querySelectorAll("[data-number]");
+    const btonesCalcu = document.querySelectorAll("[data-number]");
     const btnBorrar = document.querySelector("[data-delete]");
     const btnOk = document.querySelector("[data-ok]");
     const btnEditar = document.querySelector(".edit");
 
-
     const calculator = new Calculator(display);
 
-    botonesNumero.forEach(button => {
+    btonesCalcu.forEach(button => {
         button.addEventListener("click", () => {
             calculator.appendNumber(button.textContent);
         });
