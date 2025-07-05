@@ -12,7 +12,6 @@ setTimeout(() => {
         "9. Finalmente, elige el método de pago.\n" +
         "10. ¡Gracias por usar el sistema!"
     );
-
     alert("Ingresa el efectivo en caja");
 
     class Calculator {
@@ -21,7 +20,7 @@ setTimeout(() => {
             this.clear();
             this.dividingMode = false; //num persona dividir prop
             this.totalPropina = 0;
-            this.ingresandoEfectivo = true;
+            this.ingresandoEfectivo = true; //efectivo en caja
         }
 
         clear() { //actualizar display calculator
@@ -30,19 +29,20 @@ setTimeout(() => {
         }
 
         formatNumber(value) { //formato de 2 digitos, comas
-            const number = parseFloat(value.replace(/,/g, ''));
+            const number = parseFloat(value.replace(/,/g, '')); //convierte un string a float
             if (isNaN(number)) return '';
+
             return number.toLocaleString('en-US', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             });
         }
-        updateUI() {
+
+        updateUI() { //limpia display
             if (this.currentValue === '') {
                 this.displayElement.textContent = '';
                 return;
             }
-
             if (this.dividingMode) { //quita formato decimal para num de personas
                 this.displayElement.textContent = this.currentValue;
             } else { //muestra formato decimal
@@ -51,13 +51,11 @@ setTimeout(() => {
             }
         }
 
-
         appendNumber(number) {
             if (number === '.' && this.currentValue.includes('.')) return;
 
             // Para modo dividir prop solo números enteros
             if (this.dividingMode && number === '.') return;
-
             this.currentValue += number;
             this.updateUI();
         }
@@ -66,6 +64,7 @@ setTimeout(() => {
             this.currentValue = this.currentValue.slice(0, -1);
             this.updateUI();
         }
+
         confirm() {
             const inputCaja = document.querySelector(".cajaDinero"); //efectivo en caja
             const inputPropina = document.querySelector(".input-propina"); //total propinas
@@ -77,18 +76,16 @@ setTimeout(() => {
             // Paso 1: modo ingresando efectivo
             if (this.ingresandoEfectivo) {
                 const monto = parseFloat(this.currentValue.replace(/,/g, ''));
-                if (isNaN(monto) || monto < 0) {
+                if (isNaN(monto) || monto < 0) { //valida monto
                     alert("Monto inválido");
                     this.clear();
                     return;
                 }
 
-                const formattedEfectivo = this.formatNumber(this.currentValue); //aplicar formato
-
+                const formattedEfectivo = this.formatNumber(this.currentValue); //aplica formato decimal
                 if (inputCaja) {
                     inputCaja.value = `$${formattedEfectivo}`;
                 }
-
                 this.ingresandoEfectivo = false;
                 this.clear();
                 alert("Efectivo en caja registrado. Ahora ingresa el total de propinas.");
@@ -97,13 +94,13 @@ setTimeout(() => {
 
             // Paso 2: ingresar propinas 
             if (!this.dividingMode) {
-                const formatted = this.formatNumber(this.currentValue);
-                const numericValue = parseFloat(this.currentValue.replace(/,/g, ''));
+                const formatted = this.formatNumber(this.currentValue);//convierte un string a float
+                const numericValue = parseFloat(this.currentValue.replace(/,/g, '')); 
 
                 inputPropina.value = `$${formatted}`;
                 this.totalPropina = numericValue;
 
-                //Actualizar el campo "restante por pagar" del footer
+                //Actualiza el campo "restante por pagar" del footer
                 const restanteElemento = document.querySelector(".total.restante");
                 if (restanteElemento) {
                     restanteElemento.textContent = `$${formatted}`;
@@ -127,14 +124,13 @@ setTimeout(() => {
                     }, 1000);
                 }
 
-            } else {
+            } else { //calculo de division de propinas
                 const numPersonas = parseInt(this.currentValue);
                 if (isNaN(numPersonas) || numPersonas <= 0) {
                     alert("Ingresa un número válido de personas");
                     this.clear();
                     return;
                 }
-
                 divInput.value = numPersonas;
                 const propinaPorPersona = this.totalPropina / numPersonas;
                 divText.textContent = `$${propinaPorPersona.toFixed(2)} x persona`;
@@ -154,12 +150,11 @@ setTimeout(() => {
             this.dividingMode = false;
             this.clear();
 
-            const numPersonas = parseInt(divInput.value);
+            const numPersonas = parseInt(divInput.value); //actualiza valores
             const divText = document.querySelector(".divir p");
             if (isNaN(numPersonas) || numPersonas <= 0) {
                 divText.textContent = '$0.00 x persona';
             }
-
             alert("Se actualizará el monto de propinas x persona.");
             alert("Escribe el nuevo total de las propinas");
         }
